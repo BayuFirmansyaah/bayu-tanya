@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aku CUma Tanya</title>
+	<style>
+		.container{
+			padding: 30px 120px;
+		}
+
+		.thumbnail{
+			margin: 0px auto;
+			width: 80%;
+			min-height: 100px;
+			background:#0275d8;
+			text-align: center;
+			color: white;
+			font-size: 42px;
+			padding: 15px 0px;
+			position: relative;
+			z-index: 3;
+			font-family: sans-serif;
+		}	
+
+
+		.wrap-btn{
+			width: 35%;
+			min-height: 100px;
+			margin-left: 110px;
+			margin-top: 30px;
+		}
+
+		.wrap-gacocok{
+			margin-left: 550px;
+			margin-top: -120px;
+			padding: 20px 32px;
+			height: 100px;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+
+		.btn{
+			height: 30px;
+			float: left;
+			padding: 12px 32px;
+			font-size: 28px;
+			text-align: center;
+			font-family: sans-serif;
+			color: white;
+			cursor: pointer;
+			background: navy;
+		}
+
+		.cocok{
+			background: #5cb85c;
+			width: 87%
+		}
+		
+
+		.gacocok{
+			width: 108%;
+			background: #d9534f;
+		}
+	</style>
+</head>
+<body>
+	
+<div class="container">
+	<div class="thumbnail">
+		<p></p> 
+	</div>
+	<div class="wrap-btn">
+		<div class="btn cocok">Cocok</div>
+	</div>
+	<div class="wrap-btn wrap-gacocok">
+		<div class="btn gacocok">Engga</div>
+	</div>
+</div>
+
+
+
+<script>
+	
+	let x = screen.width;
+	console.log(x);
+
+	if(x >992){
+	let name = prompt("eits sebelum mulai masukan nama kamu dulu : ");
+	
+	while(name == null){
+		name = prompt("mau kemana sih ? di isi dulu dong nama nya");
+	}
+
+	while(name.length < 1){
+		name = prompt("mau kemana sih ? di isi dulu dong nama nya");
+	}
+
+
+	let teks = `Mau Tanya nih Kira Kira kalo aku jadi pacar ${name} cocok apa ga ?`
+	let p = document.querySelector('p');
+	p.innerText = teks;
+
+	let cocok = document.querySelector('.cocok');
+	let gacocok = document.querySelector('.wrap-gacocok');
+
+
+	cocok.addEventListener('click',function(){
+		p.innerText = "Emang Dah ketebak dah kalo kita tuh cocok :))";
+		cocok.style.display = "none";
+		gacocok.style.display = "none";
+	})
+
+	let count = 1;
+	gacocok.addEventListener('mouseover',function(){
+		let i = Math.floor(Math.random()*500)+1;
+		let j = Math.floor(Math.random()*1)+110;
+		gacocok.style.marginLeft= i+'px';
+		if(count % 2 ==0){
+			gacocok.style.marginTop= j+'px';
+		}else{
+			gacocok.style.marginTop= -j+'px';
+		}
+		count+=1;
+	})
+	}else{
+		alert("Hanya Bisa Dibuka Pake Laptop");
+		while(x<992){
+			alert("Jangan Ngeyel,kalo dibilangin buka pake laptop ya pake laptop jangan pake Hp");
+			x = screen.width
+		}
+	}
+
+</script>
+
+
+</body>
+</html>
